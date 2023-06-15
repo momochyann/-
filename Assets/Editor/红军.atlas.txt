@@ -1,0 +1,62 @@
+
+红军.png
+size: 106,648
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: true
+  xy: 2, 147
+  size: 52, 72
+  orig: 54, 74
+  offset: 1, 1
+  index: -1
+LeftArm
+  rotate: false
+  xy: 2, 105
+  size: 65, 40
+  orig: 67, 42
+  offset: 1, 1
+  index: -1
+LeftLag
+  rotate: 180
+  xy: 7, 3
+  size: 74, 38
+  orig: 75, 39
+  offset: 1, 1
+  index: -1
+RightArm
+  rotate: 180
+  xy: 13, 35
+  size: 77, 38
+  orig: 78, 39
+  offset: 0, 1
+  index: -1
+RightLag
+  rotate: true
+  xy: 37, 57
+  size: 71, 56
+  orig: 71, 72
+  offset: 0, 1
+  index: -1
+head
+  rotate: false
+  xy: 2, 201
+  size: 82, 79
+  orig: 84, 81
+  offset: 1, 1
+  index: -1
+qi
+  rotate: true
+  xy: 2, 282
+  size: 159, 92
+  orig: 162, 97
+  offset: 1, 4
+  index: -1
+qigan
+  rotate: false
+  xy: 2, 442
+  size: 102, 204
+  orig: 104, 206
+  offset: 1, 1
+  index: -1

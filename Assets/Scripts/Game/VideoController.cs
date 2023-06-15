@@ -25,12 +25,15 @@ public class VideoController : MonoBehaviour
         {
             if (videoPlayer.isPlaying)
             {
-                videoPlayer.Pause(); // ÔÝÍ£
+                videoPlayer.Pause(); // ï¿½ï¿½Í£
             }
             else
             {
-                videoPlayer.Play(); // ²¥·Å
+                videoPlayer.Play(); // ï¿½ï¿½ï¿½ï¿½
             }
+        }
+        if (Input.GetKeyDown(KeyCode.X) ){
+            Destroy(this.gameObject);
         }
     }
 
@@ -42,7 +45,7 @@ public class VideoController : MonoBehaviour
         this.transform.localScale = new Vector3(1, 1, 1);
         videoPlayer = this.GetComponent<VideoPlayer>();
         videoPlayer.clip = Resources.Load<VideoClip>(UserMode.Instance.VedioPath+UserMode.Instance.VedioName);
-        videoPlayer.Prepare(); // ²¥·ÅÒýÇæ×¼±¸£¨Ìá¸ß¿ªÊ¼²¥·ÅÊ±µÄËÙ¶È£©
+        videoPlayer.Prepare();                                                                                                      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ù¶È£ï¿½
         video_time = videoPlayer.clip.length;
         currentTime = 0;
     }
@@ -58,13 +61,16 @@ public class VideoController : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime >= video_time)
         {
-            RedArmyStateEvent redArmyStateEvent = new RedArmyStateEvent();
-            redArmyStateEvent.redArmyState = RedArmyState.Move;
-            EventManager.Broadcast(redArmyStateEvent);
-
             Destroy(this.gameObject);
         }
 
+    }
+
+
+    void OnDestroy(){
+        RedArmyStateEvent redArmyStateEvent = new RedArmyStateEvent();
+        redArmyStateEvent.redArmyState = RedArmyState.Move;
+        EventManager.Broadcast(redArmyStateEvent);
     }
 
 }

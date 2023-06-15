@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 public class MoFreamWork
 {
-
+    
 }
 public interface IMActer
 {
@@ -21,11 +21,12 @@ public class BundToValue<T>
         get => GetValue();
         set
         {
+
             if (value == null && mValue == null) return;
             if (value != null && value.Equals(mValue)) return;
-
             SetValue(value);
             mOnValueChanged?.Invoke(value);
+
         }
     }
 

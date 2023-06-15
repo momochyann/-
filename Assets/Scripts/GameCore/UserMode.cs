@@ -12,12 +12,8 @@ public class UserMode : Singleton<UserMode>, IMActer
     public string VedioPath = "Video/";
     public int rightCnt;
     public int errorCnt;
-
-
     public void Init()
     {
-
+        
     }
-
-
 }

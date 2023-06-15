@@ -16,7 +16,6 @@ public class com : MonoBehaviour
     int isStart = 0;
     int recivecnt = 0;
     byte[] recivebuf = new byte[12];
-    int i = 0;
     bool isret;
     void Start()
     {
@@ -42,8 +41,8 @@ public class com : MonoBehaviour
         }
         
         SerialPortSetting sps = new SerialPortSetting();
-        sps.Baudrate = 115200;  //波特率
-        sps.Port = SerialPort; //串口号Com1
+        sps.Baudrate = 115200;   //波特率
+        sps.Port = SerialPort;      //串口号Com1
 
         if (communicator.Com.Open(sps))
         {
@@ -135,69 +134,7 @@ public class com : MonoBehaviour
         }
     }
 
-    private void OnRawDataReceived1(byte[] bytes)
-    {
-        foreach (var by in bytes)
-        {
-            if (isStart == 0)
-            {
-                if (by == 84)
-                {
-                    isStart = 1;
-                }
-            }
-            else if (isStart == 1)
-            {
-                if (by == 44)
-                {
-                    isStart = 2;
-                    recivecnt = 2;
-                    recivebuf[0] = 84;
-                    recivebuf[1] = 44;
-                    // Debug.Log("一帧");
-                }
-                else
-                {
-                    isStart = 0;
-                }
-            }
-            else if (isStart == 2)
-            {
-                recivebuf[recivecnt] = by;
-                recivecnt++;
-                if (recivecnt > 43)
-                {
-                    // recivebufs = recivebuf;
-                    // ISevent = true;
-                    BlueToothReciveEvent evt = new BlueToothReciveEvent();
-                    // evt.data = recivebuf;
-                    EventManager.Broadcast(evt);
-
-                    // creatPoint.instance.InstaaCube(recivebuf);
-                    isStart = 0;
-                    // string recivestring = "";
-                    // foreach (var buf in recivebuf)
-                    // {
-                    //     recivestring += buf + "-";
-                    // }
-                    // Debug.Log(recivestring);
-                    float raystart = (evt.data[5] * 256 + evt.data[4]) / 100;
-                    float rayend = (evt.data[43] * 256 + evt.data[42]) / 100;
-
-                    // if (rayend < raystart)
-                    // {
-                    //     Debug.Log(i + "");
-                    //     i = 0;
-                    // }
-                    // else
-                    // {
-                    //     i++;
-                    // }
-
-                }
-            }
-        }
-    }
+   
 
     private void OnRawDataReceived(byte[] bytes)
     {

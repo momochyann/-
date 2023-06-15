@@ -20,15 +20,12 @@ public class player : MonoBehaviour
     void Update()
     {
         
-
-
-
     }
 
 
     void PlayMove(RedArmyStateEvent redArmyStateEvent)
     {
-        cinemachine.m_Speed = 1;
+        cinemachine.m_Speed = 0.5f;
     }
 
     private void ShowVedio(string videoname)
